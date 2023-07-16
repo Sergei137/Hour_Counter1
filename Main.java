@@ -4,10 +4,10 @@
 // Created: 2023-07-15
 // Updated: 2023-07-15
 
-public class main{
+public class Main{
 
-    int totalHours = 0;
-    int hours1 = 0;
+    static int totalHours = 0;
+    static int hours1 = 0;
 
 
     public static void main(String[] args){
