@@ -1,0 +1,20 @@
+This file is used as project notes.
+
+inputs:
+year
+month
+day
+start time
+end time
+
+classes:
+main:
+read file?
+write file?
+menu
+
+files:
+test file
+input file path
+
+
