@@ -1,22 +1,27 @@
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main{
     public static void main(String[] args){
-        System.out.println("<<< Hours Counter Calculator >>>");
+        System.out.println("\n<<< Hours Counter Calculator >>>");
         Scanner scanner1 = new Scanner(System.in);
+        
         MainMenu(scanner1);
         scanner1.close();     
+        
     }
 
+    
     // Main Menu Method
     public static void MainMenu(Scanner scanner1){
         int menuSelection1 = 0;
         int menuLoop1 = 0;
         while (menuLoop1 == 0){
             System.out.println("\nMain Menu");
-            System.out.println("\n1. New Entry");
+            System.out.println("1. New Entry");
             System.out.println("2. View Entry");
             System.out.println("3. Write to File");
             System.out.println("4. Test Class");
@@ -60,6 +65,7 @@ public class Main{
         System.out.println("1. Within one day");
         System.out.println("2. Over midnight");
         System.out.println("3. Over multiple days");
+        System.out.print("Enter selection: ");
         input2 = scanner1.nextInt();
 
         if (input2 == 1) {
@@ -77,7 +83,9 @@ public class Main{
     }
 
     // Within One Day Method
+    public static List<OneDayShift> shiftList1 = new ArrayList<OneDayShift>();
     public static void WithinOneDay(Scanner scanner1){
+        
         int year1 = 0;
         int month1 = 0;
         int monthDay1 = 0;
@@ -86,117 +94,47 @@ public class Main{
         double hourEnd = 0;
         double totalEnteredHours = 0;
 
-        System.out.println("Enter current year: ");
+        System.out.print("\nEnter current year: ");
         year1 = scanner1.nextInt();
         
-        System.out.println("Enter current month (1-12): ");
+        System.out.print("Enter current month (1-12): ");
         month1 = scanner1.nextInt();
 
-        System.out.println("Enter current day of the month: ");
+        System.out.print("Enter current day of the month: ");
         monthDay1 = scanner1.nextInt();
     
-        System.out.println("Enter current day of the week (1-7): ");
+        System.out.print("Enter current day of the week (1-7): ");
         day1 = scanner1.nextInt();
 
         System.out.println("Use the 24 hour clock format for the time inputs and use the equivalent decimal value for minutes (i.e. 1:30pm = 13.5)");
-        System.out.println("Enter starting hour: ");
+        System.out.print("Enter starting hour: ");
         hourStart = scanner1.nextDouble();
 
-        System.out.println("Enter the ending hour: ");
+        System.out.print("Enter the ending hour: ");
         hourEnd = scanner1.nextDouble();
-        scanner1.nextLine();
 
         totalEnteredHours = hourEnd - hourStart;
-        System.out.println("Hours entered: " + totalEnteredHours); 
+        System.out.println("\nHours entered: " + totalEnteredHours); 
+
+        OneDayShift shift1 = new OneDayShift(year1, month1, monthDay1, day1, hourStart, hourEnd, totalEnteredHours);
+
+        shiftList1.add(shift1);
+
+        for (OneDayShift shift : shiftList1) {
+            System.out.println(shift.toString());
+        }
+
+        
     }
 
     // Over Midnight Method
     public static void OverMidnight(Scanner scanner1){
-        int year1 = 0;
-        int year2 = 0;
-        int month1 = 0;
-        int month2 = 0;
-        int monthDay1 = 0;
-        int monthDay2 = 0;
-        int day1 = 0;
-        int day2 = 0;
-        double hourStart = 0;
-        double hourEnd = 0;
-        double totalEnteredHours = 0;
 
-        System.out.println("Enter the starting year: ");
-        year1 = scanner1.nextInt();
-        System.out.println("Enter the ending year: ");
-        year2 = scanner1.nextInt();
-        
-        System.out.println("Enter the starting month (1-12): ");
-        month1 = scanner1.nextInt();
-        System.out.println("Enter the ending month (1-12): ");
-        month2 = scanner1.nextInt();
-
-        System.out.println("Enter the starting day of the month: ");
-        monthDay1 = scanner1.nextInt();
-        System.out.println("Enter the ending day of the month: ");
-        monthDay2 = scanner1.nextInt();
-
-        System.out.println("Enter the starting day of the week (1-7): ");
-        day1 = scanner1.nextInt();
-        System.out.println("Enter the ending day of the week (1-7): ");
-        day2 = scanner1.nextInt();
-
-        System.out.println("Use the 24 hour clock format for the time inputs and use the equivalent decimal value for minutes (i.e. 1:30pm = 13.5)");
-        System.out.println("Enter the starting hour: ");
-        hourStart = scanner1.nextDouble();
-
-        System.out.println("Enter the ending hour: ");
-        hourEnd = scanner1.nextDouble();
-        scanner1.nextLine();
-
-        totalEnteredHours = (hourEnd - hourStart) + 24;
-        System.out.println("Hours entered: " + totalEnteredHours); 
     }
 
     // Over Multiple Days Method
     public static void OverMultipleDays(Scanner scanner1){
-        int year1 = 0;
-        int year2 = 0;
-        int month1 = 0;
-        int month2 = 0;
-        int monthDay1 = 0;
-        int monthDay2 = 0;
-        int day1 = 0;
-        int day2 = 0;
-        double hourStart = 0;
-        double hourEnd = 0;
-        double totalEnteredHours = 0;
 
-        System.out.println("Enter the starting year: ");
-        year1 = scanner1.nextInt();
-        System.out.println("Enter the ending year: ");
-        year2 = scanner1.nextInt();
-        
-        System.out.println("Enter the starting month (1-12): ");
-        month1 = scanner1.nextInt();
-        System.out.println("Enter the ending month (1-12): ");
-        month2 = scanner1.nextInt();
-
-        System.out.println("Enter the starting day of the month: ");
-        monthDay1 = scanner1.nextInt();
-        System.out.println("Enter the ending day of the month: ");
-        monthDay2 = scanner1.nextInt();
-
-        System.out.println("Enter the starting day of the week (1-7): ");
-        day1 = scanner1.nextInt();
-        System.out.println("Enter the ending day of the week (1-7): ");
-        day2 = scanner1.nextInt();
-
-        System.out.println("Use the 24 hour clock format for the time inputs and use the equivalent decimal value for minutes (i.e. 1:30pm = 13.5)");
-        System.out.println("Enter the starting hour: ");
-        hourStart = scanner1.nextDouble();
-
-        System.out.println("Enter the ending hour: ");
-        hourEnd = scanner1.nextDouble();
-        scanner1.nextLine();
     }
 
     // View entry by date
@@ -210,7 +148,7 @@ public class Main{
 
     // Test Class
     public static void TestClass(Scanner scanner1) {
-        TestClass.readFileTest(scanner1);
+        TestClass.ReadFileTest(scanner1);
     }
 
 }

@@ -9,3 +9,103 @@ This file holds code snippets.
             else {
                 System.out.println("Error: Invalid input. Proceeding anyways...");
             }
+
+
+
+
+
+
+
+        int year1 = 0;
+        int year2 = 0;
+        int month1 = 0;
+        int month2 = 0;
+        int monthDay1 = 0;
+        int monthDay2 = 0;
+        int day1 = 0;
+        int day2 = 0;
+        double hourStart = 0;
+        double hourEnd = 0;
+        double totalEnteredHours = 0;
+
+        System.out.println("Enter the starting year: ");
+        year1 = scanner1.nextInt();
+        System.out.println("Enter the ending year: ");
+        year2 = scanner1.nextInt();
+        
+        System.out.println("Enter the starting month (1-12): ");
+        month1 = scanner1.nextInt();
+        System.out.println("Enter the ending month (1-12): ");
+        month2 = scanner1.nextInt();
+
+        System.out.println("Enter the starting day of the month: ");
+        monthDay1 = scanner1.nextInt();
+        System.out.println("Enter the ending day of the month: ");
+        monthDay2 = scanner1.nextInt();
+
+        System.out.println("Enter the starting day of the week (1-7): ");
+        day1 = scanner1.nextInt();
+        System.out.println("Enter the ending day of the week (1-7): ");
+        day2 = scanner1.nextInt();
+
+        System.out.println("Use the 24 hour clock format for the time inputs and use the equivalent decimal value for minutes (i.e. 1:30pm = 13.5)");
+        System.out.println("Enter the starting hour: ");
+        hourStart = scanner1.nextDouble();
+
+        System.out.println("Enter the ending hour: ");
+        hourEnd = scanner1.nextDouble();
+        scanner1.nextLine();
+
+        totalEnteredHours = (hourEnd - hourStart) + 24;
+        System.out.println("Hours entered: " + totalEnteredHours); 
+
+
+
+
+
+
+
+
+
+
+
+
+                int year1 = 0;
+        int year2 = 0;
+        int month1 = 0;
+        int month2 = 0;
+        int monthDay1 = 0;
+        int monthDay2 = 0;
+        int day1 = 0;
+        int day2 = 0;
+        double hourStart = 0;
+        double hourEnd = 0;
+        double totalEnteredHours = 0;
+
+        System.out.println("Enter the starting year: ");
+        year1 = scanner1.nextInt();
+        System.out.println("Enter the ending year: ");
+        year2 = scanner1.nextInt();
+        
+        System.out.println("Enter the starting month (1-12): ");
+        month1 = scanner1.nextInt();
+        System.out.println("Enter the ending month (1-12): ");
+        month2 = scanner1.nextInt();
+
+        System.out.println("Enter the starting day of the month: ");
+        monthDay1 = scanner1.nextInt();
+        System.out.println("Enter the ending day of the month: ");
+        monthDay2 = scanner1.nextInt();
+
+        System.out.println("Enter the starting day of the week (1-7): ");
+        day1 = scanner1.nextInt();
+        System.out.println("Enter the ending day of the week (1-7): ");
+        day2 = scanner1.nextInt();
+
+        System.out.println("Use the 24 hour clock format for the time inputs and use the equivalent decimal value for minutes (i.e. 1:30pm = 13.5)");
+        System.out.println("Enter the starting hour: ");
+        hourStart = scanner1.nextDouble();
+
+        System.out.println("Enter the ending hour: ");
+        hourEnd = scanner1.nextDouble();
+        scanner1.nextLine();
