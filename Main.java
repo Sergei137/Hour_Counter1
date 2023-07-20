@@ -1,42 +1,53 @@
 import java.util.Scanner;
+import java.io.IOException;
+import java.io.File;
 
 public class Main{
     public static void main(String[] args){
-
-        System.out.println("Hours Counter Calculator");
-
+        System.out.println("<<< Hours Counter Calculator >>>");
         Scanner scanner1 = new Scanner(System.in);
-
         MainMenu(scanner1);
-
-        scanner1.close();        
+        scanner1.close();     
     }
 
     // Main Menu Method
     public static void MainMenu(Scanner scanner1){
-        
-        int input1 = 0;
+        int menuSelection1 = 0;
+        int menuLoop1 = 0;
+        while (menuLoop1 == 0){
+            System.out.println("\nMain Menu");
+            System.out.println("\n1. New Entry");
+            System.out.println("2. View Entry");
+            System.out.println("3. Write to File");
+            System.out.println("0. Exit program");
+            System.out.print("Enter selection: ");
+            menuSelection1 = scanner1.nextInt();
+            // scanner1.nextLine();
+            
+            if (menuSelection1 == 1){
+                menuSelection1 = 0;
+                NewEntry(scanner1);
+            }
+            else if (menuSelection1 == 2){
+                menuSelection1 = 0;
+                ViewEntry(scanner1);
+            }
+            else if (menuSelection1 == 3){
+                menuSelection1 = 0;
+                WriteToFile();
+            }
+            else if (menuSelection1 == 4){
 
-        System.out.println("Main Menu");
-        System.out.println("1. New Entry");
-        System.out.println("2. View Entry");
-        System.out.println("3. Write to File");
-        input1 = scanner1.nextInt();
-        
-        if (input1 == 1){
-            NewEntry(scanner1);
+            }
+            else if (menuSelection1 == 0){
+                System.out.println("Exiting program...");
+                menuLoop1 = -1;
+            }
+            else {
+                menuSelection1 = 0;
+                System.out.println("Please enter a valid input.");
+            }
         }
-        else if (input1 == 2){
-            ViewEntry(scanner1);
-        }
-        else if (input1 == 3){
-            WriteToFile();
-        }
-        else{
-            System.out.println("Please enter a valid input.");
-        }
-
-        
     }
 
     // New Entry Method
@@ -50,16 +61,16 @@ public class Main{
         System.out.println("3. Over multiple days");
         input2 = scanner1.nextInt();
 
-        if (input2 == 1){
+        if (input2 == 1) {
             WithinOneDay(scanner1);
         }
-        else if (input2 == 2){
+        else if (input2 == 2) {
             OverMidnight(scanner1);
         }
-        else if (input2 == 3){
+        else if (input2 == 3) {
             OverMultipleDays(scanner1);
         }
-        else{
+        else {
             System.out.println("Please enter a valid input.");
         }          
     }
@@ -193,14 +204,12 @@ public class Main{
 
 
     // View entry by date
-    public static void ViewEntry(Scanner scanner1){
-
-    
-
+    public static void ViewEntry(Scanner scanner1) {
+        TestClass.readFileTest(scanner1);
     }
 
     // Write to file
-    public static void WriteToFile(){
+    public static void WriteToFile() {
         
     }
 
