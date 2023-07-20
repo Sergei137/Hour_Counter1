@@ -8,13 +8,10 @@ public class Main{
     public static void main(String[] args){
         System.out.println("\n<<< Hours Counter Calculator >>>");
         Scanner scanner1 = new Scanner(System.in);
-        
         MainMenu(scanner1);
-        scanner1.close();     
-        
+        scanner1.close();
     }
 
-    
     // Main Menu Method
     public static void MainMenu(Scanner scanner1){
         int menuSelection1 = 0;
@@ -59,22 +56,22 @@ public class Main{
 
     // New Entry Method
     public static void NewEntry(Scanner scanner1){
-        int input2 = 0;
+        int newEntrySelection = 0;
 
         System.out.println("Does the shift span within one day, over midnight, or over multiple days?");
         System.out.println("1. Within one day");
         System.out.println("2. Over midnight");
         System.out.println("3. Over multiple days");
         System.out.print("Enter selection: ");
-        input2 = scanner1.nextInt();
+        newEntrySelection = scanner1.nextInt();
 
-        if (input2 == 1) {
+        if (newEntrySelection == 1) {
             WithinOneDay(scanner1);
         }
-        else if (input2 == 2) {
+        else if (newEntrySelection == 2) {
             OverMidnight(scanner1);
         }
-        else if (input2 == 3) {
+        else if (newEntrySelection == 3) {
             OverMultipleDays(scanner1);
         }
         else {
@@ -148,6 +145,7 @@ public class Main{
 
     // Test Class
     public static void TestClass(Scanner scanner1) {
+        int input3
         TestClass.ReadFileTest(scanner1);
     }
 
