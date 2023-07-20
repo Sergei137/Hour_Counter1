@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
+import java.io.FileWriter;
 
 public class TestClass {
     public static void ReadFileTest(Scanner scanner1){
@@ -10,8 +11,8 @@ public class TestClass {
             
             // Read file
             while (fileScanner.hasNextLine()) {
-                String data = fileScanner.nextLine();
-                System.out.println(data);
+                String data1 = fileScanner.nextLine();
+                System.out.println(data1);
             }
             fileScanner.close();
 
@@ -22,7 +23,19 @@ public class TestClass {
         }
     }
 
-    public static void writeFileTest(){
+    public static void WriteFileTest(){
+        try {
+            FileWriter TestFile1 = new FileWriter("testFile.txt");
 
+
+
+
+
+
+
+
+        } catch (IOException e){
+            System.out.println("Error: " + e);
+        }
     }
 }

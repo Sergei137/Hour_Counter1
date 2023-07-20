@@ -145,8 +145,14 @@ public class Main{
 
     // Test Class
     public static void TestClass(Scanner scanner1) {
-        int input3
-        TestClass.ReadFileTest(scanner1);
+        int testSelection = 0;
+        if (testSelection == 1){
+            TestClass.ReadFileTest(scanner1);
+        } else if (testSelection == 2){
+            
+        } else {
+
+        }
     }
 
 }
