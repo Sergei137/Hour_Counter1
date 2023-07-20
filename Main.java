@@ -19,10 +19,11 @@ public class Main{
             System.out.println("\n1. New Entry");
             System.out.println("2. View Entry");
             System.out.println("3. Write to File");
+            System.out.println("4. Test Class");
             System.out.println("0. Exit program");
             System.out.print("Enter selection: ");
             menuSelection1 = scanner1.nextInt();
-            // scanner1.nextLine();
+            System.out.println();
             
             if (menuSelection1 == 1){
                 menuSelection1 = 0;
@@ -37,7 +38,8 @@ public class Main{
                 WriteToFile();
             }
             else if (menuSelection1 == 4){
-
+                menuSelection1 = 0;
+                TestClass(scanner1);
             }
             else if (menuSelection1 == 0){
                 System.out.println("Exiting program...");
@@ -52,7 +54,6 @@ public class Main{
 
     // New Entry Method
     public static void NewEntry(Scanner scanner1){
-
         int input2 = 0;
 
         System.out.println("Does the shift span within one day, over midnight, or over multiple days?");
@@ -196,21 +197,20 @@ public class Main{
         System.out.println("Enter the ending hour: ");
         hourEnd = scanner1.nextDouble();
         scanner1.nextLine();
-
-
     }
-
-
-
 
     // View entry by date
     public static void ViewEntry(Scanner scanner1) {
-        TestClass.readFileTest(scanner1);
     }
 
     // Write to file
     public static void WriteToFile() {
         
+    }
+
+    // Test Class
+    public static void TestClass(Scanner scanner1) {
+        TestClass.readFileTest(scanner1);
     }
 
 }

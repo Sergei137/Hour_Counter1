@@ -15,18 +15,12 @@ public class TestClass {
             }
             fileScanner.close();
 
-            // Proceed check. Probably a better way to do it/not needed.
-            System.out.println("\nType and enter any character to proceed");
-            var proceed = scanner1.nextLine();
-            if (proceed != null) {
-                System.out.println("Proceeding...");
-            }
-            else {
-                System.out.println("Error: Invalid input. Proceeding anyways...");
-            }
+            
         }
         catch (IOException e) {
             System.out.println("Error: " + e);
         }
+
+
     }
 }
