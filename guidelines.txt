@@ -17,4 +17,4 @@ files:
 test file
 input file path
 
-
+inheritance for other time options

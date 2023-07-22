@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
 
 public class Main{
     public static void main(String[] args){
@@ -145,11 +148,17 @@ public class Main{
 
     // Test Class
     public static void TestClass(Scanner scanner1) {
+        
+        System.out.println("1. Read File Test");
+        System.out.println("2. Write File Test");
+        System.out.print("Enter selection: ");
         int testSelection = 0;
+        testSelection = scanner1.nextInt();
+
         if (testSelection == 1){
-            TestClass.ReadFileTest(scanner1);
+            TestClass.ReadFileTest(scanner1, shiftList1);
         } else if (testSelection == 2){
-            
+            TestClass.WriteFileTest(scanner1, shiftList1);
         } else {
 
         }
@@ -163,4 +172,4 @@ public class Main{
 // Hour Counter Program
 // Author: Sergei Mochalov
 // Created: 2023-07-15
-// Updated: 2023-07-19
+// Updated: 2023-07-22
