@@ -6,9 +6,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 
-public class TestClass {
+public class ReadWrite {
     // Read file method
-    public static void ReadFileTest(Scanner scanner1, List<OneDayShift> shiftList1){
+    public static void ReadFile(List<OneDayShift> shiftList1, List<OverMidnightShift> shiftList2, List<OverMultipleDaysShift> shiftList3){
         try {
             File TestFile1 = new File("testFile.txt");
             Scanner fileScanner = new Scanner(TestFile1);
@@ -28,34 +28,24 @@ public class TestClass {
 
                 OneDayShift shift1 = new OneDayShift(year1, month1, monthDay1, day1, hourStart, hourEnd, totalEnteredHours);
                 shiftList1.add(shift1);
-
-                System.out.println(data1);
             }
-            
             fileScanner.close();
-
-            
         }
         catch (IOException e) {
             System.out.println("Error: " + e);
         }
     }
 
-
-
-    public static void WriteFileTest(Scanner scanner1, List<OneDayShift> shiftList1){
-
-        for (OneDayShift shift : shiftList1){
-            System.out.println(shift);
-
-
+    // Write file method
+    public static void WriteFile(List<OneDayShift> ODSList1, List<OneDayShift> newODSList){
+        for  (OneDayShift shift : newODSList){
+            ODSList1.add(shift);
         }
-
         try {
             FileWriter testFile1 = new FileWriter("testFile.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(testFile1);
 
-            for (OneDayShift shift : shiftList1){
+            for (OneDayShift shift : newODSList){
                 int year1 = shift.year;
                 int month1 = shift.month;
                 int monthDay1 = shift.monthDay;
@@ -65,13 +55,11 @@ public class TestClass {
                 double totalEnteredHours = shift.totalEnteredHours;
 
                 bufferedWriter.write(year1 + "," + month1 + "," + monthDay1 + "," + day1 + "," + hourStart + "," + hourEnd + "," + totalEnteredHours + "\n");
-
             }
             bufferedWriter.flush();
-            bufferedWriter.close();
-
-            
-        } catch (IOException e){
+            bufferedWriter.close(); 
+        }
+        catch (IOException e){
             System.out.println("Error: " + e);
         }
     }
