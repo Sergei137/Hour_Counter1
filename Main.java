@@ -14,7 +14,9 @@ public class Main{
         List<OneDayShift> ODSList1 = new ArrayList<OneDayShift>();
         List<OneDayShift> newODSList = new ArrayList<OneDayShift>();
         List<OverMidnightShift> OMSList1 = new ArrayList<OverMidnightShift>();
+        // newOMSList
         List<OverMultipleDaysShift> OMDSList1 = new ArrayList<OverMultipleDaysShift>();
+        // newOMDSList
         ReadWrite.ReadFile(ODSList1, OMSList1, OMDSList1);
         MainMenu(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
         WriteToFile(ODSList1, newODSList);
@@ -108,7 +110,7 @@ public class Main{
         while (menuLoop3 == 0){
             System.out.println("View Entries Menu");
             System.out.println("1. View all shifts");
-            System.out.println("2. UNAVAILABLE - View entry by date");
+            System.out.println("2. UNAVAILABLE - View shift by date");
             System.out.println("0. Return to main menu");
             System.out.print("Enter selection: ");
             ViewShiftsSelection = scanner1.nextInt();
@@ -119,7 +121,7 @@ public class Main{
             }
             else if (ViewShiftsSelection == 2){
                 ViewShiftsSelection = 0;
-                ShiftManager.ViewEntryByDate(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
+                ShiftManager.ViewShiftByDate(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
             }
             else if (ViewShiftsSelection == 0){
                 menuLoop3 = -1;

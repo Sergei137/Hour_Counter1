@@ -18,3 +18,15 @@ test file
 input file path
 
 inheritance for other time options
+
+TODO:
+
+sort data
+view shift by date
+edit data
+delete data
+connect to database
+implement other shift options (time dependant/optional)
+dosumentation
+
+est. time to develop: 3 days

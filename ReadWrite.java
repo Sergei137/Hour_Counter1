@@ -41,6 +41,12 @@ public class ReadWrite {
         for  (OneDayShift shift : newODSList){
             ODSList1.add(shift);
         }
+        
+        // order by date before write
+
+
+
+
         try {
             FileWriter testFile1 = new FileWriter("testFile.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(testFile1);

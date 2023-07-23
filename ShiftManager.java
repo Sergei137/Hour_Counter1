@@ -34,8 +34,9 @@ public class ShiftManager {
         System.out.println("\nHours entered: " + totalEnteredHours1); 
 
         OneDayShift shift1 = new OneDayShift(year1, month1, monthDay1, day1, hourStart1, hourEnd1, totalEnteredHours1);
-        newODSList.add(shift1);
         System.out.println(shift1.toString());
+        newODSList.add(shift1);
+        // order by date 
     }
 
     // Over Midnight Method
@@ -49,9 +50,11 @@ public class ShiftManager {
 
     // View all entries
     public static void ViewAllShifts(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList, List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1) {
+        System.out.println("Current Entries:");
         for (OneDayShift shift : ODSList1) {
             System.out.println(shift.toString());
         }
+        System.out.println("\nNew Entries:");
         for (OneDayShift shift : newODSList) {
             System.out.println(shift.toString());
         }
@@ -59,7 +62,7 @@ public class ShiftManager {
     }
 
     // View entry by date
-    public static void ViewEntryByDate(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList, List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1){
+    public static void ViewShiftByDate(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList, List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1){
 
     }
 
