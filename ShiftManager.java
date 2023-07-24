@@ -1,11 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.IOException;
-import java.io.File;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
 
 public class ShiftManager {
     public static void WithinOneDay(Scanner scanner1, List<OneDayShift> newODSList){

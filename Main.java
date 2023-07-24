@@ -1,11 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.IOException;
-import java.io.File;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
 
 public class Main{
     // Start of program
@@ -15,9 +10,9 @@ public class Main{
         List<OneDayShift> ODSList1 = new ArrayList<OneDayShift>();
         List<OneDayShift> newODSList = new ArrayList<OneDayShift>();
         List<OverMidnightShift> OMSList1 = new ArrayList<OverMidnightShift>();
-        // newOMSList
+        // need to create newOMSList here
         List<OverMultipleDaysShift> OMDSList1 = new ArrayList<OverMultipleDaysShift>();
-        // newOMDSList
+        // need to create newOMDSList here
         ReadWrite.ReadFile(ODSList1, OMSList1, OMDSList1);
         MainMenu(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
         WriteToFile(ODSList1, newODSList);
