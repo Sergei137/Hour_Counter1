@@ -16,13 +16,13 @@ public class ShiftManager {
 
         System.out.print("Enter job title: ");
         jobTitle1 = scanner1.next();
-        System.out.print("Enter current year: ");
+        System.out.print("Enter year: ");
         year1 = scanner1.nextInt();
-        System.out.print("Enter current month (1-12): ");
+        System.out.print("Enter month (1-12): ");
         month1 = scanner1.nextInt();
-        System.out.print("Enter current day of the month: ");
+        System.out.print("Enter day of the month: ");
         monthDay1 = scanner1.nextInt();
-        System.out.print("Enter current day of the week (1-7): ");
+        System.out.print("Enter weekday (1-7 or 8 for NA): ");
         day1 = scanner1.nextInt();
         if (day1 == 1 ){
             weekDay1 = "Sunday";
@@ -44,6 +44,9 @@ public class ShiftManager {
         }
         else if (day1 == 7){
             weekDay1 = "Saturday";
+        }
+        else if (day1 == 8){
+            weekDay1 = "NA";
         }
         System.out.println("Use the 24 hour clock format for the time inputs and use the equivalent decimal value for minutes (i.e. 1:30pm = 13.5)");
         System.out.print("Enter starting hour: ");
@@ -71,18 +74,21 @@ public class ShiftManager {
 
     // View all entries
     public static void ViewAllShifts(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList, List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1) {
+        double totalHours1 = 0;
+        
         System.out.println("Current Entries:");
         for (OneDayShift shift : ODSList1) {
             System.out.println(shift.toString());
+            totalHours1 += shift.TotalHours;
         }
         if (!newODSList.isEmpty()){
             System.out.println("\nNew Entries:");
             for (OneDayShift shift : newODSList) {
                 System.out.println(shift.toString());
+                totalHours1 += shift.TotalHours;
             }
         }
-        System.out.println();
-
+        System.out.println("\nTotal Hours worked: " + totalHours1 + "\n");
     }
 
     // View shift by job title
@@ -146,11 +152,8 @@ public class ShiftManager {
         int month1 = 0;
         int monthDay1 = 0;
         int day1 = 0;
-        String weekDay1 = null;
         double hourStart1 = 0;
         double hourEnd1 = 0;
-        double totalHours1 = 0;
-        OneDayShift selectedShift = null;
         boolean shiftFound = false;
 
         System.out.print("Enter the year of the shift: ");
@@ -162,83 +165,76 @@ public class ShiftManager {
 
         for (OneDayShift shift : ODSList1) {
             if (shift.Year == year1 && shift.Month == month1 && shift.MonthDay == monthDay1) {
-                selectedShift = shift;
                 System.out.println(shift.toString());
 
                 System.out.println("Enter new job title or 0 to keep current job title: ");
                 jobTitle1 = scanner1.next();
                 if (jobTitle1.equals("0")) {
-                    jobTitle1 = shift.JobTitle;
+                    shift.JobTitle = jobTitle1;
                 }
 
                 System.out.println("Enter new year or 0 to keep current year: ");
                 year1 = scanner1.nextInt();
                 if (year1 != 0) {
-                    selectedShift. Year = year1;
+                    shift.Year = year1;
                 }
 
                 System.out.println("Enter new month or 0 to keep current month: ");
                 month1 = scanner1.nextInt();
                 if (month1 != 0) {
-                    selectedShift.Month = month1;
+                    shift.Month = month1;
                 }
 
                 System.out.println("Enter new day of the month or 0 to keep current month day: ");
                 monthDay1 = scanner1.nextInt();
                 if (monthDay1 != 0) {
-                    selectedShift.MonthDay = monthDay1;
+                    shift.MonthDay = monthDay1;
                 }
 
-                System.out.println("Enter new day or 0 to keep current day (1-7): ");
+                System.out.println("Enter new weekday or 0 to keep current day (1-7): ");
                 day1 = scanner1.nextInt();
                 if (day1 != 0) {
                     if (day1 == 1){
-                        weekDay1 = "Sunday";
-                        selectedShift.WeekDay = weekDay1;
+                        shift.WeekDay = "Sunday";
                     }
                     else if (day1 == 2){
-                        weekDay1 = "Monday";
-                        selectedShift.WeekDay = weekDay1;
+                        shift.WeekDay = "Monday";
                     }
                     else if (day1 == 3){
-                        weekDay1 = "Tuesday";
-                        selectedShift.WeekDay = weekDay1;
+                        shift.WeekDay = "Tuesday";
                     }
                     else if (day1 == 4){
-                        weekDay1 = "Wednesday";
-                        selectedShift.WeekDay = weekDay1;
+                        shift.WeekDay = "Wednesday";
                     }
                     else if (day1 == 5){
-                        weekDay1 = "Thursday";
-                        selectedShift.WeekDay = weekDay1;
+                        shift.WeekDay = "Thursday";
                     }
                     else if (day1 == 6){
-                        weekDay1 = "Friday";
-                        selectedShift.WeekDay = weekDay1;
+                        shift.WeekDay = "Friday";
                     }
                     else if (day1 == 7){
-                        weekDay1 = "Saturday";
-                        selectedShift.WeekDay = weekDay1;
+                        shift.WeekDay = "Saturday";
+                    }
+                    else if (day1 == 8){
+                        shift.WeekDay = "NA";
                     }
                 }
 
                 System.out.println("Enter new starting hour or -1 to keep current starting hour: ");
                 hourStart1 = scanner1.nextDouble();
                 if (hourStart1 != -1) {
-                    selectedShift.HourStart = hourStart1;
+                    shift.HourStart = hourStart1;
                 }
 
                 System.out.println("Enter new ending hour or -1 to keep current ending hour: ");
                 hourEnd1 = scanner1.nextDouble();
                 if (hourEnd1 != -1) {
-                    selectedShift.HourEnd = hourEnd1;
+                    shift.HourEnd = hourEnd1;
                 }
-                totalHours1 = hourEnd1 - hourStart1;
+                shift.TotalHours = hourEnd1 - hourStart1;
                 
                 System.out.println();
-                OneDayShift newShift = new OneDayShift(jobTitle1, year1, month1, monthDay1, weekDay1, hourStart1, hourEnd1, totalHours1);
-                System.out.println("\n" + newShift.toString() + "\n");
-                shift = newShift;
+                System.out.println("\n" + shift.toString() + "\n");
                 shiftFound = true;
             }
         }
