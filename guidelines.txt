@@ -19,12 +19,19 @@ input file path
 
 inheritance for other time options
 
+
+
 TODO:
 
-sort data
 connect to database
-implement other shift options (time dependant/optional)
-dosumentation
+sort data by date
+documentation
 README.txt file
 
+error checking/case sensitivity
+inheritance
+implement other shift options (time dependant/optional)
+
 est. time to develop: 3 days
+
+

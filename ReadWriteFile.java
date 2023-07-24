@@ -8,26 +8,27 @@ import java.io.BufferedWriter;
 
 public class ReadWriteFile {
     // Read file method
-    public static void ReadFile(List<OneDayShift> shiftList1, List<OverMidnightShift> shiftList2, List<OverMultipleDaysShift> shiftList3){
+    public static void ReadFile(List<OneDayShift> ODSList1, List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1){
         try {
-            File TestFile1 = new File("testFile.txt");
-            Scanner fileScanner = new Scanner(TestFile1);
+            File HoursFile = new File("hours.txt");
+            Scanner fileScanner = new Scanner(HoursFile);
             
-            // Read file, create objects, add objects to shiftList1
+            // Read file, create objects, add objects to ODSList1
             while (fileScanner.hasNextLine()) {
                 String data1 = fileScanner.nextLine();
                 String[] data2 = data1.split(",");
 
-                int year1 = Integer.parseInt(data2[0]);
-                int month1 = Integer.parseInt(data2[1]);
-                int monthDay1 = Integer.parseInt(data2[2]);
-                int day1 = Integer.parseInt(data2[3]);
-                double hourStart = Double.parseDouble(data2[4]);
-                double hourEnd = Double.parseDouble(data2[5]);
-                double totalEnteredHours = Double.parseDouble(data2[6]);
+                String jobTitle1 = data2[0];
+                int year1 = Integer.parseInt(data2[1]);
+                int month1 = Integer.parseInt(data2[2]);
+                int monthDay1 = Integer.parseInt(data2[3]);
+                String weekDay1 = (data2[4]);
+                double hourStart = Double.parseDouble(data2[5]);
+                double hourEnd = Double.parseDouble(data2[6]);
+                double totalHours = Double.parseDouble(data2[7]);
 
-                OneDayShift shift1 = new OneDayShift(year1, month1, monthDay1, day1, hourStart, hourEnd, totalEnteredHours);
-                shiftList1.add(shift1);
+                OneDayShift shift1 = new OneDayShift(jobTitle1, year1, month1, monthDay1, weekDay1, hourStart, hourEnd, totalHours);
+                ODSList1.add(shift1);
             }
             fileScanner.close();
         }
@@ -42,25 +43,23 @@ public class ReadWriteFile {
             ODSList1.add(shift);
         }
         
-        // order by date before write
-
-
-
+        // order by date before write =========================================================
 
         try {
-            FileWriter testFile1 = new FileWriter("testFile.txt", true);
-            BufferedWriter bufferedWriter = new BufferedWriter(testFile1);
+            FileWriter HoursFile = new FileWriter("hours.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(HoursFile);
 
-            for (OneDayShift shift : newODSList){
-                int year1 = shift.year;
-                int month1 = shift.month;
-                int monthDay1 = shift.monthDay;
-                int day1 = shift.day;
-                double hourStart = shift.hourStart;
-                double hourEnd = shift.hourEnd;
-                double totalEnteredHours = shift.totalEnteredHours;
+            for (OneDayShift shift : ODSList1){
+                String jobTitle1 = shift.JobTitle;
+                int year1 = shift.Year;
+                int month1 = shift.Month;
+                int monthDay1 = shift.MonthDay;
+                String weekDay1 = shift.WeekDay;
+                double hourStart = shift.HourStart;
+                double hourEnd = shift.HourEnd;
+                double totalHours = shift.TotalHours;
 
-                bufferedWriter.write(year1 + "," + month1 + "," + monthDay1 + "," + day1 + "," + hourStart + "," + hourEnd + "," + totalEnteredHours + "\n");
+                bufferedWriter.write(jobTitle1 + "," + year1 + "," + month1 + "," + monthDay1 + "," + weekDay1 + "," + hourStart + "," + hourEnd + "," + totalHours + "\n");
             }
             bufferedWriter.flush();
             bufferedWriter.close(); 

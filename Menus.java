@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menus {
-    
+
     // Main Menu method
     public static void MainMenu(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList ,List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1){
         int menuSelection1 = 0;
@@ -37,7 +37,7 @@ public class Menus {
             }
             else if (menuSelection1 == 5){
                 menuSelection1 = 0;
-                // TestClass(scanner1);
+                System.out.println("Unavailable. Please enter an available option.");
             }
             else if (menuSelection1 == 0){
                 System.out.println("Exiting program...");
@@ -70,12 +70,12 @@ public class Menus {
             }
             else if (newEntrySelection == 2) {
                 newEntrySelection = 0;
-                System.out.println("Unavailable. Please enter available option.");
+                System.out.println("Unavailable. Please enter an available option.");
                 // ShiftManager.OverMidnight(scanner1, OMSList1);
             }
             else if (newEntrySelection == 3) {
                 newEntrySelection = 0;
-                System.out.println("Unavailable. Please enter available option.");
+                System.out.println("Unavailable. Please enter an available option.");
                 // ShiftManager.OverMultipleDays(scanner1, OMDSList1);
             }
             else if (newEntrySelection == 0) {
@@ -96,7 +96,8 @@ public class Menus {
         while (menuLoop3 == 0){
             System.out.println("View Entries Menu");
             System.out.println("1. View all shifts");
-            System.out.println("2. View shift by date");
+            System.out.println("2. View shift by job title");
+            System.out.println("3. View shift by date");
             System.out.println("0. Return to main menu");
             System.out.print("Enter selection: ");
             ViewShiftsSelection = scanner1.nextInt();
@@ -106,6 +107,10 @@ public class Menus {
                 ShiftManager.ViewAllShifts(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
             }
             else if (ViewShiftsSelection == 2){
+                ViewShiftsSelection = 0;
+                ShiftManager.ViewShiftByTitle(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
+            }
+            else if (ViewShiftsSelection == 3){
                 ViewShiftsSelection = 0;
                 ShiftManager.ViewShiftByDate(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
             }
@@ -118,24 +123,4 @@ public class Menus {
             }
         }
     }    
-
-    // Test Class
-    // public static void TestClass(Scanner scanner1) {
-        
-    //     System.out.println("1. Read File Test");
-    //     System.out.println("2. Write File Test");
-    //     System.out.print("Enter selection: ");
-    //     int testSelection = 0;
-    //     testSelection = scanner1.nextInt();
-
-    //     if (testSelection == 1){
-    //         TestClass.ReadFileTest(scanner1, newODSList);
-    //     }
-    //     else if (testSelection == 2){
-    //         TestClass.WriteFileTest(scanner1, newODSList);
-    //     }
-    //     else {
-
-    //     }
-    // }
 }

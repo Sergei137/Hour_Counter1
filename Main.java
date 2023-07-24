@@ -2,6 +2,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
+// Hour Counter Program
+// Author: Sergei Mochalov
+// Created: 2023-07-15
+// Updated: 2023-07-23
+
 public class Main{
     // Start of program
     public static void main(String[] args){
@@ -17,13 +22,6 @@ public class Main{
         Menus.MainMenu(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
         ReadWriteFile.WriteFile(ODSList1, newODSList);
         scanner1.close();
+        System.out.println("Program terminated.");
     }
 }
-
-
-
-
-// Hour Counter Program
-// Author: Sergei Mochalov
-// Created: 2023-07-15
-// Updated: 2023-07-23

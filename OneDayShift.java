@@ -1,26 +1,28 @@
 
 public class OneDayShift {
-    int year;
-    int month;
-    int monthDay;
-    int day;
-    double hourStart;
-    double hourEnd;
-    double totalEnteredHours;
+    String JobTitle;
+    int Year;
+    int Month;
+    int MonthDay;
+    String WeekDay;
+    double HourStart;
+    double HourEnd;
+    double TotalHours;
 
-    public OneDayShift(int year, int month, int monthDay, int day, double hourStart, double hourEnd, double totalEnteredHours){
-        this.year = year;
-        this.month = month;
-        this.monthDay = monthDay;
-        this.day = day;
-        this.hourStart = hourStart;
-        this.hourEnd = hourEnd;
-        this.totalEnteredHours = totalEnteredHours;
+    public OneDayShift(String jobTitle, int year, int month, int monthDay, String weekDay, double hourStart, double hourEnd, double totalHours){
+        this.JobTitle = jobTitle;
+        this.Year = year;
+        this.Month = month;
+        this.MonthDay = monthDay;
+        this.WeekDay = weekDay;
+        this.HourStart = hourStart;
+        this.HourEnd = hourEnd;
+        this.TotalHours = totalHours;
     }
 
     @Override
     public String toString(){
-        return "Year: " + year + " Month: " + month + " Month Day: " + monthDay + " Day: " + day + " Hour Start: " + hourStart + " Hour End: " + hourEnd + " Total Entered Hours: " + totalEnteredHours;
+        return "Job Title: " + JobTitle + " Year: " + Year + " Month: " + Month + " Month Day: " + MonthDay + " Day: " + WeekDay + " Starting Hour: " + HourStart + " Ending Hour: " + HourEnd + " Total Shift Hours: " + TotalHours;
     }
 }
 
