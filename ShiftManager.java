@@ -31,6 +31,10 @@ public class ShiftManager {
         OneDayShift shift1 = new OneDayShift(year1, month1, monthDay1, day1, hourStart1, hourEnd1, totalEnteredHours1);
         System.out.println(shift1.toString());
         newODSList.add(shift1);
+
+
+
+        
         // order by date 
     }
 
@@ -71,6 +75,12 @@ public class ShiftManager {
         monthDay1 = scanner1.nextInt();
 
         for (OneDayShift shift : ODSList1) {
+            if (shift.year == year1 && shift.month == month1 && shift.monthDay == monthDay1) {
+                System.out.println("\n" + shift.toString() + "\n");
+                shiftFound = true;
+            }
+        }
+        for (OneDayShift shift : newODSList) {
             if (shift.year == year1 && shift.month == month1 && shift.monthDay == monthDay1) {
                 System.out.println("\n" + shift.toString() + "\n");
                 shiftFound = true;
