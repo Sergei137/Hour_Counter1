@@ -13,9 +13,9 @@ public class Main{
         // need to create newOMSList here
         List<OverMultipleDaysShift> OMDSList1 = new ArrayList<OverMultipleDaysShift>();
         // need to create newOMDSList here
-        ReadWrite.ReadFile(ODSList1, OMSList1, OMDSList1);
+        ReadWriteFile.ReadFile(ODSList1, OMSList1, OMDSList1);
         MainMenu(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
-        WriteToFile(ODSList1, newODSList);
+        ReadWriteFile.WriteFile(ODSList1, newODSList);
         scanner1.close();
     }
 
@@ -133,11 +133,6 @@ public class Main{
             }
         }
     }    
-
-    // Write to file
-    public static void WriteToFile(List<OneDayShift> ODSList1, List<OneDayShift> newODSList) {
-        ReadWrite.WriteFile(ODSList1, newODSList);
-    }
 
     // Test Class
     // public static void TestClass(Scanner scanner1) {

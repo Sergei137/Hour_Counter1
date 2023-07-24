@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 
-public class ReadWrite {
+public class ReadWriteFile {
     // Read file method
     public static void ReadFile(List<OneDayShift> shiftList1, List<OverMidnightShift> shiftList2, List<OverMultipleDaysShift> shiftList3){
         try {
