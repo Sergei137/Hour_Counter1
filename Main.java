@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 
 public class Main{
+    // Start of program
     public static void main(String[] args){
         System.out.println("\n<<< Hours Counter Calculator >>>\n");
         Scanner scanner1 = new Scanner(System.in);
@@ -23,7 +24,7 @@ public class Main{
         scanner1.close();
     }
 
-    // Main Menu Method
+    // Main Menu method
     public static void MainMenu(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList ,List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1){
         int menuSelection1 = 0;
         int menuLoop1 = 0;
@@ -32,7 +33,8 @@ public class Main{
             System.out.println("1. New Entry");
             System.out.println("2. View Shifts");
             System.out.println("3. Edit Shift Data");
-            System.out.println("4. UNAVAILABLE - Test Class");
+            System.out.println("4. Delete Shift");
+            System.out.println("5. UNAVAILABLE - Test Class");
             System.out.println("0. Exit program");
             System.out.print("Enter selection: ");
             menuSelection1 = scanner1.nextInt();
@@ -47,9 +49,13 @@ public class Main{
             }
             else if (menuSelection1 == 3){
                 menuSelection1 = 0;
-                ShiftManager.EditShifts(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
+                ShiftManager.EditShift(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
             }
             else if (menuSelection1 == 4){
+                menuSelection1 = 0;
+                ShiftManager.DeleteShift(scanner1, ODSList1, newODSList, OMSList1, OMDSList1);
+            }
+            else if (menuSelection1 == 5){
                 menuSelection1 = 0;
                 // TestClass(scanner1);
             }
@@ -64,7 +70,7 @@ public class Main{
         }
     }
 
-    // New Entry Menu Method
+    // New Entry Menu method
     public static void NewEntry(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList, List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1){
         int newEntrySelection = 0;
         int menuLoop2 = 0;
@@ -85,12 +91,12 @@ public class Main{
             else if (newEntrySelection == 2) {
                 newEntrySelection = 0;
                 System.out.println("Unavailable. Please enter available option.");
-                ShiftManager.OverMidnight(scanner1, OMSList1);
+                // ShiftManager.OverMidnight(scanner1, OMSList1);
             }
             else if (newEntrySelection == 3) {
                 newEntrySelection = 0;
                 System.out.println("Unavailable. Please enter available option.");
-                ShiftManager.OverMultipleDays(scanner1, OMDSList1);
+                // ShiftManager.OverMultipleDays(scanner1, OMDSList1);
             }
             else if (newEntrySelection == 0) {
                 newEntrySelection = 0;
@@ -103,14 +109,14 @@ public class Main{
         }      
     }
 
-    // View Shifts Menu Method
+    // View Shifts Menu method
     public static void ViewShifts(Scanner scanner1, List<OneDayShift> ODSList1, List<OneDayShift> newODSList, List<OverMidnightShift> OMSList1, List<OverMultipleDaysShift> OMDSList1){
         int ViewShiftsSelection = 0;
         int menuLoop3 = 0;
         while (menuLoop3 == 0){
             System.out.println("View Entries Menu");
             System.out.println("1. View all shifts");
-            System.out.println("2. UNAVAILABLE - View shift by date");
+            System.out.println("2. View shift by date");
             System.out.println("0. Return to main menu");
             System.out.print("Enter selection: ");
             ViewShiftsSelection = scanner1.nextInt();
@@ -165,4 +171,4 @@ public class Main{
 // Hour Counter Program
 // Author: Sergei Mochalov
 // Created: 2023-07-15
-// Updated: 2023-07-22
+// Updated: 2023-07-23
